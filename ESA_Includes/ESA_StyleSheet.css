@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* Electronic Stratagem Analyzer [ESA] CSS Document */
+
+body 
+{
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #4E5869;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl 
+{ 
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul
+{
+	margin-top: 0;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+a img 
+{
+	border: none;
+}
+
+a:link 
+{
+	color:#414958;
+	text-decoration: underline;
+}
+
+a:visited 
+{
+	color: #4E5869;
+	text-decoration: underline;
+}
+
+a:hover, a:active, a:focus 
+{
+	text-decoration: none;
+}
+
+.container 
+{
+	width: 80%;
+	max-width: 1260px;
+	min-width: 780px;
+	background-color: #FFF;
+	margin: 0 auto; 
+}
+
+.header 
+{
+	background-color: #6F7D94;
+}
+
+.esaLogo
+{
+	font-size:70px;
+	font-weight:900;
+	text-shadow: 1px 1px #FFFFFF;
+	/*float: left;*/
+}
+
+.esaAcronym
+{
+	font-size:30px;
+	font-weight:300;
+	text-shadow: 1px 1px #FFFFFF;
+	/*float: left;*/
+	margin:0px 0px 5px 5px;
+	
+}
+
+/* Columns */
+.sidebar1 
+{
+	float: right;
+	width: 40%;
+	background-color: #93A5C4;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.sidebar1 p:first-letter
+{
+	font-size:70px;
+	font-weight:800;
+	padding: 5px 5px 5px 0px;
+	float:left;
+	/*initial-letter: 5;*/
+}
+
+.content {
+	/*padding: 10px 0;*/
+	width: 55%;
+	float: left;
+	padding:10px;
+}
+
+.LeagueListTitle
+{
+	background-color: #6F7D94;
+	padding: 5px;
+	border-radius: 10px;
+	width:95%;
+	margin:5px;
+}
+
+/* Lists in .content area space */
+.content ul, .content ol 
+{ 
+	padding: 0 15px 15px 40px;
+}
+
+/* Navigation list styles */
+ul.nav 
+{
+	list-style:square;
+	list-style-position:inside;
+	border-top: 1px solid #666; 
+	margin-bottom: 0px;
+}
+
+ul.nav li 
+{
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+
+ul.nav a, ul.nav a:visited 
+{ /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	text-decoration: none;
+	background-color: #8090AB;
+	color: #000;
+}
+
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus 
+{ /* this changes the background and text color for both mouse and keyboard navigators */
+	background-color: #6F7D94;
+	color: #FFF;
+}
+
+/* ~~ The footer ~~ */
+.footer 
+{
+	padding: 10px 0;
+	background-color: #6F7D94;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt 
+{  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+
+.fltlft 
+{ /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+
+.clearfloat 
+{ /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.dataResults_BG
+{
+	background-color: #93A5C4;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px 0px 10px 0px;
+}
+
