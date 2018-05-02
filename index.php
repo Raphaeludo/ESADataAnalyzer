@@ -12,7 +12,9 @@
               <a href="#work">
                 <button type="button" name="button" class="btn btn-how btn-lg" >what is does</button>
               </a>
-              
+              <a href="index - CSVOutput.php">
+                <button type="button" name="button" class="btn btn-howw btn-lg"  >GENERATE DATA NOW</button>
+            </a>
               <button type="button" name="request" id="requestBtn" class="btn btn-how btn-lg hidden-md hidden-lg">Request</button>
               <button type="button" name="request" id="closeBtn" class="btn btn-how btn-lg hidden-md hidden-lg">Hide</button>
           </div>
