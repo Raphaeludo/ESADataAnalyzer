@@ -1,10 +1,52 @@
-<?php
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="ESA_Includes/ESA_StyleSheet.css"/>
+<title>Electronic Stratagem Analyzer</title>
+<!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
+ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
+</style>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+  <p class="esaLogo">ESA<br/><span class="esaAcronym">Electronic Stratagem Analyzer</span></p><!--<p class="esaAcronym">Electronic Stratagem Analyzer</p>-->
+  <!--<a href="#"><img src="" alt="" name="Electronic Stratagem Analyzer" width="20%" height="90" id="Insert_logo" style="background-color: #8090AB; display:block;" />--></a> 
+    <!-- end .header --></div>
+  <div class="sidebar1">
+    <p> The Electronic Stratagem Analyzer is an ambitous app that aims to grab data needed for match analysis from a data source for use in automatically monitoring our football betting strategy over a sustained period of time without further input or effort on our part. The ESA app will automatically grab the needed data based on a specific set of criteria, perform the analysis and record the outcome of the analysis. It would subsequently record match scores and determine what profit was made for that particular day, everyday for 30 or 90 days. Our data source will be soccerstats.com</p>
+    <p>So, there are a couple of football betting strategies I would love to check out, specifically at least two. The match data for keeping track of this strategy will be analyzed based on a couple of criteria which I will explain later. Now, Back to the strategy. Our first stratagem will involve the Home Win and Away No Bet - Draw Markets. We will be using this strategy only on odd ranges of 2.x-3.x-3.x Our aim will be to check how profitable this strategy will be over the course of 30 days or maybe even a 90-day period. So the ESA app will help us to determine after the 30 or 90 day period whether we made profit of what percentage or whether we blew our virtual bankroll and ended in a loss.</p><br/>
+  <h4>UPCOMING FEATURES LISTING</h4>
+    <ul class="nav">
+      <li>Listing of National League Matches Only From Available Matches Per Day</li>
+      <li>Listing Criteria to Include Teams With Match History of 8 Matches and Above</li>
+      <li>Listed Matches Should Include Match Odds for the 1x2 Market from at Least 3 different Bookmakers</li>
+      <li>Attacking Graphs to Illustrate Detailed Metrics/Points Difference in Attacking Strength for Each Team for all Listed Matches</li>
+      <li>Defensive Graphs to Illustrate Defensive Strength</li>
+      <li>Form Graphs to Illustrate Both Team's Current Form</li>
+      <li>League Table Illustrating Current Position of Home Team for Home Matches</li>
+      <li>League Table Illustrating Current Position of Away Team for Home Matches</li>
+      <li>Merged League Table Showing League Position of the Teams in Question for all Matches Played.</li>
+    </ul>
+    <!-- end .sidebar1 --></div>
+  <div class="content">
+    <!--<h1>ABOUT THE ELECTRONIC STRATAGEM ANALYZER</h1>-->
+    <p class="LeagueListTitle">
+      LISTING ALL LEAGUE MATCHES ONLY AVAILABLE FOR TODAY...
+    </p>
+    <?php
 
 
-header('Content-type: application/ms-excel');
-header('Content-Disposition: attachment; filename=ESA-Electronic_Stratagem_Analyzer.csv');
+/*header('Content-type: application/ms-excel');
+header('Content-Disposition: attachment; filename=EDCAA_AGIComponentSuite.csv');
 
-$fp = fopen("php://output", "w");
+$fp = fopen("php://output", "w");*/
 
 
 //include_once('AGI_EDCAA_LIBRARY/simplehtmldom_1_5/simple_html_dom.php');
@@ -58,15 +100,6 @@ $find_H2HData;
 $capononVar;
 
 $find_H2HData_HOLDERScore;
-
-
-//VITAL ARRAY VARIABLES NEEDED ON THE EXCEL WORKSHEET...
-$matchEvent_ArrayVAR = array();
-$NationalLeague_Name_ArrayVAR = array();
-
-$TRUE_Qualified_MatchEvent_ArrayVAR = array();
-$TRUE_Qualified_NationalLeague_Name_ArrayVAR = array();
-
 
 $initial_extractionSource = 'http://www.soccerstats.com/matches.asp?matchday=3';
 
@@ -401,69 +434,15 @@ unset($DOM_Object_H2HData);
   <?php           
 }//END OF THE MOTHER FOREACH LOOP foreach($findElements as $fE)
 
-
-//CSV DATA OUTPUT BEGINS HERE...
-
-$Buffer_TitleHead_String_ArrayVAR = array();
-
-/*$Buffer_ArrayVAR = array();
-$Buffer_ArrayVAR[] = "";
-
-$Buffer_TitleHead_String_ArrayVAR = array();
-$Match_TitleHead_String_ArrayVAR = array();
-$LeagueName_TitleHead_String_ArrayVAR = array();*/
-
-$TitleHead_String_ArrayVAR = array();
+    $DOM_Object->clear();
+    unset($DOM_Object);
 
 
-$Buffer_TitleHead_String_ArrayVAR[] = '';
-/*$MatchEvent_TitleHead_String_ArrayVAR[] = 'MATCH';
-$LeagueName_TitleHead_String_ArrayVAR[] = 'LEAGUE';*/
-
-$TitleHead_String_ArrayVAR = array('MATCH', 'LEAGUE');//, 'HTS', 'HTC', 'ATS', 'ATC', 'HS+1', 'HS-1', 'HC+1', 'HC-1', 'AS+1', 'AS-1', 'AC+1', 'AC-1', 'PHW', 'PHX', 'PHL', 'PAW', 'PAX', 'PAL');
-
-
-$CSV_Output_Holder[] = $Buffer_TitleHead_String_ArrayVAR;
-
-$CSV_Output_Holder[] = $TitleHead_String_ArrayVAR;
-
-//fputcsv($fp, $CSV_Output_Holder);
-
-//$CSV_Output_Holder[] = $Buffer_ArrayVAR;
-$CSV_Output_Holder[] = $TRUE_Qualified_MatchEvent_ArrayVAR;//$matchEvent_ArrayVAR;
-$CSV_Output_Holder[] = $TRUE_Qualified_NationalLeague_Name_ArrayVAR;//$NationalLeague_Name_ArrayVAR;
-
-/*
-//DIAGNOSTIC...
-echo '<br/><br/>';
-echo 'TRYING TO PRINT MULTIPLE ARRAYS AND STRING VALUES STORED INTO $CSV_Output_Holder';
-echo '<br/><br/>';
-*/
-
-
-function StripTrimClean_Callback($array_dataValue)
-{
-	$StrippedTrimmedCleaned_DV = str_replace("&nbsp;", "", str_replace("\xc2\xa0", "", trim(strip_tags($array_dataValue))));
-	return $StrippedTrimmedCleaned_DV;
-}
-
-//OVER TO YOU GENTLEMEN...
-foreach($CSV_Output_Holder as $CSV_OuH)
-{
-	//USING array_map() WHICH RETURNS AN ARRAY...
-	$Stripped_and_Cleaned_DataValues = array_map("StripTrimClean_Callback", $CSV_OuH);
-	
-	fputcsv($fp, $Stripped_and_Cleaned_DataValues);
-	
-}
-
-fclose($fp);
-	
-	
-	/*$DOM_Object_NationalLeague->clear();
-	unset($DOM_Object_NationalLeague);*/
-	
-	$DOM_Object->clear();
-	unset($DOM_Object);
-
-?>
+    ?>
+    <!-- end .content --></div>
+  <div class="footer">
+    <p>Copyright &copy; 2018 Fatjoe Exclusive&reg;</p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>
